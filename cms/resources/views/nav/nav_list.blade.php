@@ -110,7 +110,7 @@
                 },
                 success:function(data) {
                     if(data==1){
-                        location.href='classify_list';
+                        location.href='nav_list';
                     }
                 }
             });
