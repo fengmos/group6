@@ -29,25 +29,25 @@ class LoginController extends BaseController
      * @return [type] [description]
      */
     public function check_login(){
-        // $u_name=Request::input('u_name');
-        // $u_pwd=Request::input('u_pwd');
-        // $ar = DB::table('admin')->where('username',$u_name)->first();//一维
-        // if($ar)
-        // {
-        //     if($ar->admin_pwd==$u_pwd)
-        //     {
-        //         $session = new Session;
-        //         $session->set("u_name",$ar->username);
-        //         $session->set("u_pwd",$ar->admin_pwd);
-        //         return redirect('index');
+         $u_name=Request::input('u_name');
+         $u_pwd=Request::input('u_pwd');
+         $ar = DB::table('admin')->where('username',$u_name)->first();//一维
+         if($ar)
+         {
+             if($ar->admin_pwd==$u_pwd)
+             {
+                 $session = new Session;
+                 $session->set("u_name",$ar->username);
+                 $session->set("u_pwd",$ar->admin_pwd);
+                 return redirect('index');
 
-        //     }else
-        //     {
-        //         return redirect('login');
-        //     }
-        // }else
-        // {
+             }else
+             {
+                 return redirect('login');
+             }
+         }else
+         {
             return redirect('login');
-        //}
+        }
     }
 }
