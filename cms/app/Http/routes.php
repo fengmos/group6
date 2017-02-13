@@ -54,7 +54,13 @@ Route::any('/nav_add','NavController@nav_add');
 Route::any('/house_list','HouseController@house_list');
 //跳转到房源添加页面
 Route::any('/house_add','HouseController@house_add');
-
+//导航的
+//添加入库
+Route::any('/classify_ads','NavController@classify_ads');
+//修改状态
+Route::any('/classify_up','NavController@classify_up');
+//删除
+Route::any('/del','NavController@del');
 
 
 
