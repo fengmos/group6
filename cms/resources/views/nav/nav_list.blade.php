@@ -1,24 +1,27 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>DouPHP 管理中心 - 文章分类 </title>
+    <title>DouPHP 管理中心</title>
     <meta name="Copyright" content="Douco Design." />
     <link href="css/public.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/global.js"></script>
 </head>
 <body>
-<div id="dcWrap">
-    <div id="dcHead">
-               {{--顶部公共页面--}}
-    @include('common/top')
+<div id="dcWrap"> <div id="dcHead">
+        {{--顶部公共页面--}}
+        @include('common/top')
     </div>
     <!-- dcHead 结束 --> <div id="dcLeft">
-   {{--左侧公共页面--}}
-    @include('common/nav_left')
-</div>
+        {{--左侧公共页面--}}
+        @include('common/nav_left')
+
+
+
+
+    </div>
+
     <div id="dcMain">
         <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心<b>></b><strong>自定义导航栏</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
@@ -39,35 +42,32 @@
                             <td valign="top">
                                 <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
                                     <tr>
-                                        <td width="100">商户名称</td>
-                                        <td></td>
-                                        <td width="50" align="center">排序</td>
-                                        <td width="80" align="center">操作</td>
+                                        <td width="60">导航名称</td>
+                                        <td width="60">导航地址</td>
+                                        <td width="60">导航状态</td>
+                                        <td width="60">导航照片</td>
+                                        <td width="60" align="center">排序</td>
+                                        <td width="60" align="center">操作</td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="http://www.weiqing.com/data/slide/20130514acunau.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514acunau_thumb.jpg" width="100" /></a></td>
-                                        <td>广告图片01</td>
-                                        <td align="center">1</td>
-                                        <td align="center"><a href="editshow.html?id=1">编辑</a> | <a href="delshow.htmlid=1">删除</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="http://www.weiqing.com/data/slide/20130514rjzqdt.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514rjzqdt_thumb.jpg" width="100" /></a></td>
-                                        <td>广告图片02</td>
-                                        <td align="center">2</td>
-                                        <td align="center"><a href="editshow.html?id=2">编辑</a> | <a href="delshow.htmlid=2">删除</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="http://www.weiqing.com/data/slide/20130514xxsctt.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514xxsctt_thumb.jpg" width="100" /></a></td>
-                                        <td>广告图片03</td>
-                                        <td align="center">3</td>
-                                        <td align="center"><a href="editshow.html?id=3">编辑</a> | <a href="delshow.htmlid=3">删除</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="http://www.weiqing.com/data/slide/20130523hiqafl.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130523hiqafl_thumb.jpg" width="100" /></a></td>
-                                        <td>广告图片04</td>
-                                        <td align="center">4</td>
-                                        <td align="center"><a href="editshow.html?id=4">编辑</a> | <a href="delshow.htmlid=4">删除</a></td>
-                                    </tr>
+                                    @foreach ($arr as $k=>$v)
+                                        <tr n_id="{{$v->n_id}}">
+                                            <td align="center">{{$v->n_name}}</td>
+                                            <td>{{$v->n_link}}</td>
+                                            <td>
+                                                @if ($v->n_status==1)
+                                                    <span class="dian">开启</span>
+                                                @else
+                                                    <span class="dian">弃用</span>
+                                                @endif
+                                            </td>
+                                            <td><img src="{{$v->n_img}}" alt="" width="50" height="50"></td>
+                                            <td align="center">{{$v->n_order}}</td>
+                                            <td align="center"><a href="del?id={{$v->n_id}}">删除</a></td>
+                                        </tr>
+                                    @endforeach
+                                    <tr><td></td><td>
+                                            {!! $arr->render() !!}
+                                        </td></tr>
                                 </table>
                             </td>
                         </tr>
@@ -88,3 +88,33 @@
     <div class="clear"></div> </div>
 </body>
 </html>
+<script src="./js.js"></script>
+<script>
+    $(function(){
+        $(document).on('click','.dian',function(){
+            var zhi=$(this).html();
+            var n_id=$(this).parents('tr').attr("n_id");
+            if(zhi=="弃用")
+            {
+                var zstatus=1;
+            }else if(zhi=="开启")
+            {
+                var zstatus=0;
+            }
+            $.ajax({
+                type:"post",
+                url:"classify_up",
+                data:{
+                    zstatus:zstatus,
+                    n_id:n_id
+                },
+                success:function(data) {
+                    if(data==1){
+                        location.href='classify_list';
+                    }
+                }
+            });
+
+        });
+    });
+</script>
