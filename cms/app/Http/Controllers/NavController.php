@@ -63,7 +63,7 @@ class NavController extends CommonController
         $res =DB::delete("delete from r_nav where n_id='$id'");
         if($res)
         {
-            return redirect('classify_list');
+            return redirect('nav_list');
         }
     }
 
