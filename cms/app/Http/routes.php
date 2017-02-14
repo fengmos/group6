@@ -39,6 +39,15 @@ Route::any('/index','IndexController@index');
 Route::any('/landlord_list','LandlordController@landlord_show');
 //跳转到房东增加
 Route::any('/landlord_add','LandlordController@landlord_add');
+//跳转到房东删除
+Route::any('/landlord_delete','LandlordController@landlord_delete');
+//跳转到房东编辑
+Route::any('/landlord_update','LandlordController@landlord_update');
+
+
+Route::any('/cc','CommonController@cc');
+
+
 
 //跳转到租户管理
 Route::any('/renter_list','RenterController@renter_show');
