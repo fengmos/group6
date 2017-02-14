@@ -9,45 +9,33 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Request;
 use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
-/**
- * 登陆控制器
- * @author  chenyang 
- * @return  void
- */
 class LoginController extends BaseController
 {
-    /**
-     * 登陆页面展示
-     * @return [type] [description]
-     */
+    //跳转到登陆页面
     public function login(){
         return view('Login.login');
     }
-    
-    /**
-     * 登陆验证方法
-     * @return [type] [description]
-     */
+    //验证登陆是否正确
     public function check_login(){
-        // $u_name=Request::input('u_name');
-        // $u_pwd=Request::input('u_pwd');
-        // $ar = DB::table('admin')->where('username',$u_name)->first();//一维
-        // if($ar)
-        // {
-        //     if($ar->admin_pwd==$u_pwd)
-        //     {
-        //         $session = new Session;
-        //         $session->set("u_name",$ar->username);
-        //         $session->set("u_pwd",$ar->admin_pwd);
-        //         return redirect('index');
+//        $u_name=Request::input('u_name');
+//        $u_pwd=Request::input('u_pwd');
+//        $ar = DB::table('admin')->where('u_name',$u_name)->first();//一维
+//        if($ar)
+//        {
+//if($ar->u_pwd==$u_pwd)
+//{
+//    $session = new Session;
+//    $session->set("u_name",$ar->u_name);
+//    $session->set("u_pwd",$ar->u_pwd);
+    return redirect('index');
 
-        //     }else
-        //     {
-        //         return redirect('login');
-        //     }
-        // }else
-        // {
-            return redirect('login');
-        //}
+//}else
+//{
+//    return redirect('login');
+//}
+//        }else
+//        {
+//            return redirect('login');
+//        }
     }
 }
