@@ -1,6 +1,0 @@
-[11-Feb-2017 09:16:48 PRC] PHP Warning:  require(D:\phpStudy\WWW\aiwujiwu\6group\cms\bootstrap/../vendor/autoload.php): failed to open stream: No such file or directory in D:\phpStudy\WWW\aiwujiwu\6group\cms\bootstrap\autoload.php on line 17
-[11-Feb-2017 09:16:48 PRC] PHP Fatal error:  require(): Failed opening required 'D:\phpStudy\WWW\aiwujiwu\6group\cms\bootstrap/../vendor/autoload.php' (include_path='.;C:\php\pear') in D:\phpStudy\WWW\aiwujiwu\6group\cms\bootstrap\autoload.php on line 17
-[11-Feb-2017 01:46:17 UTC] PHP Parse error:  syntax error, unexpected ')' in D:\phpStudy\WWW\aiwujiwu\6group\cms\storage\framework\views\c9d7f2f565f9d2490aa30221547cd311f59262e9.php on line 69
-[14-Feb-2017 00:01:23 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\veiw() in D:\phpStudy\WWW\aiwujiwu\6group\cms\app\Http\Controllers\WxController.php on line 62
-[14-Feb-2017 00:01:27 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\veiw() in D:\phpStudy\WWW\aiwujiwu\6group\cms\app\Http\Controllers\WxController.php on line 62
-[14-Feb-2017 00:01:59 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\veiw() in D:\phpStudy\WWW\aiwujiwu\6group\cms\app\Http\Controllers\WxController.php on line 62
