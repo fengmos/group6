@@ -47,106 +47,18 @@
                             <th width="80" align="center">添加日期</th>
                             <th width="80" align="center">操作</th>
                         </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="10" /></td>
-                            <td align="center">10</td>
-                            <td><a href="article.php?rec=edit&id=10">移动互联网产品设计的核心要素有哪些？</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=10">编辑</a> | <a href="article.php?rec=del&id=10">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="9" /></td>
-                            <td align="center">9</td>
-                            <td><a href="article.php?rec=edit&id=9">详解如何利用RSS进行网络推广</a></td>
-                            <td align="center"><a href="article.php?cat_id=2">行业新闻</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=9">编辑</a> | <a href="article.php?rec=del&id=9">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="8" /></td>
-                            <td align="center">8</td>
-                            <td><a href="article.php?rec=edit&id=8">企业网站文章标题该如何去撰写</a></td>
-                            <td align="center"><a href="article.php?cat_id=2">行业新闻</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">-
-                                <a href="article.php?rec=edit&id=8">编辑</a> | <a href="article.php?rec=del&id=8">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="7" /></td>
-                            <td align="center">7</td>
-                            <td><a href="article.php?rec=edit&id=7">移动互联网发展下的企业网变革</a></td>
-                            <td align="center"><a href="article.php?cat_id=2">行业新闻</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=7">编辑</a> | <a href="article.php?rec=del&id=7">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="6" /></td>
-                            <td align="center">6</td>
-                            <td><a href="article.php?rec=edit&id=6">新手如何选购虚拟主机</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=6">编辑</a> | <a href="article.php?rec=del&id=6">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="5" /></td>
-                            <td align="center">5</td>
-                            <td><a href="article.php?rec=edit&id=5">网站建设要素之如何制定一份网站策划方案</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=5">编辑</a> | <a href="article.php?rec=del&id=5">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="4" /></td>
-                            <td align="center">4</td>
-                            <td><a href="article.php?rec=edit&id=4">一个新手要如何着手来做好网站运营？</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=4">编辑</a> | <a href="article.php?rec=del&id=4">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="3" /></td>
-                            <td align="center">3</td>
-                            <td><a href="article.php?rec=edit&id=3">网络营销之该如何打造吸引性的软文营销</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=3">编辑</a> | <a href="article.php?rec=del&id=3">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="2" /></td>
-                            <td align="center">2</td>
-                            <td><a href="article.php?rec=edit&id=2">如何利用电子商务提升企业竞争力</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=2">编辑</a> | <a href="article.php?rec=del&id=2">删除</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="1" /></td>
-                            <td align="center">1</td>
-                            <td><a href="article.php?rec=edit&id=1">企业网站建设的重要性</a></td>
-                            <td align="center"><a href="article.php?cat_id=1">公司动态</a></td>
-                            <td align="center">2013-06-26</td>
-                            <td align="center">
-                                <a href="article.php?rec=edit&id=1">编辑</a> | <a href="article.php?rec=del&id=1">删除</a>
-                            </td>
-                        </tr>
+                        @foreach($data as $v)
+                            <tr>
+                                <td align="center"><input type="checkbox" name="checkbox[]" value="10" /></td>
+                                <td align="center">{{$v->r_id}}</td>
+                                <td><a href="article.php?rec=edit&id=10">{{$v->r_adress}}</a></td>
+                                <td align="center"><a href="article.php?cat_id=1">{{$v->r_price}}</a></td>
+                                <td align="center">{{$v->r_type}}</td>
+                                <td align="center">
+                                    <a href="house_update?id={{$v->r_id}}">编辑</a> | <a href="house_del?id={{$v->r_id}}">删除</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </table>
                     <div class="action">
                         <select name="action" onchange="douAction()">
