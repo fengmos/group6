@@ -9,33 +9,26 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Request;
 use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
+/**
+ * 导航控制器
+ * @author  liuyanmeng 
+ */
 class NavController extends CommonController
 {
-    //跳转到商户列表页面
-    public function nav_show(){
-        //echo 111;die;
-        return view('Nav.nav_show');
-
+    /**
+     * 导航列表页面
+     * @return [type] [description]
+     */
+    public function nav_list(){
+        return view('nav.nav_list');
     }
-    //跳转到添加页面
+
+    /**
+     * 导航添加页面
+     * @return [type] [description]
+     */
     public function nav_add(){
-        return view('Nav.nav_add');
+        return view('nav.nav_add');
     }
-    //添加入库
-    public function nav_shows(){
-        $nav_name=Request::input('nav_name');
-        $xuan=Request::input('xuan');
-        $sort=Request::input('sort');
-        $links_ad=Request::input('links_ad');
-        $user=array('nav_name'=>$nav_name,'xuan'=>$xuan,'sort'=>$sort,'links_ad'=>$links_ad);
-        $res = DB::table('nav')->insert($user);
-        if($res)
-        {
-            return redirect("nav_show");
-        }else
-        {
-            echo "添加失败";
-        }
-
-    }
+    
 }
