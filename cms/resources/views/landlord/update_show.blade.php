@@ -36,11 +36,11 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
                 </tr>
                 <tr>
                     <td width="350" valign="top">
-                        <form action="{{url('landlord_add')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{url('landlord_update')}}" method="post" enctype="multipart/form-data">
                             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
                                 <tr>
                                     <td><b>房东名称：</b>
-                                        <input type="text" name="r_name"  size="20" class="inpMain" id="r_name"/>
+                                        <input type="text" name="r_name"  size="20" class="inpMain" value="{{$landlord_info['r_name']}}"/>
                                         <span id="r_name_info"></span>
                                     </td>
                                 </tr>
@@ -50,28 +50,35 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
                                 </tr>
                                 <tr>
                                     <td><b>电话</b>
-                                        <input type="text" name="r_tel"  size="40" class="inpMain" />
+                                        <input type="text" name="r_tel"  size="40" class="inpMain" value="{{$landlord_info['r_tel']}}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>电子邮箱</b>
-                                        <input type="text" name="r_email"  size="20" class="inpMain" />
+                                        <input type="text" name="r_email"  size="20" class="inpMain" value="{{$landlord_info['r_email']}}" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>性别</b>
-                                        <input type="radio" name="r_sex" value="1" size="20" class="inpMain">男
+                                        @if($landlord_info['r_sex'] == 1)
+                                        <input type="radio" name="r_sex" value="1" size="20" class="inpMain" checked>男
                                         <input type="radio" name="r_sex" value="2" size="20" class="inpMain">女
+                                        @elseif($landlord_info['r_sex'] == 2)
+                                        <input type="radio" name="r_sex" value="1" size="20" class="inpMain" >男
+                                        <input type="radio" name="r_sex" value="2" size="20" class="inpMain" checked>女
+
+                                        @endif
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>年龄</b>
-                                        <input type="text" name="r_age" size="20" class="inpMain" />
+                                        <input type="text" name="r_age" size="20" class="inpMain" value="{{$landlord_info['r_age']}}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-        
+                                        <input type="hidden" name="r_id" value="{{$landlord_info['r_id']}}">
                                         <input name="submit" class="btn" type="submit" value="提交" />
                                     </td>
                                 </tr>
