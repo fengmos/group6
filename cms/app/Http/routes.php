@@ -50,9 +50,19 @@ Route::any('/cc','CommonController@cc');
 
 
 //跳转到租户管理
-Route::any('/renter_list','RenterController@renter_show');
+Route::any('/renter_list','RenterController@renter_list');
 //跳转到租户添加
 Route::any('/renter_add','RenterController@renter_add');
+//住户添加操作
+Route::any('/renter_add_pro','RenterController@renter_add_pro');
+//住户删除操作
+Route::any('/renter_del','RenterController@renter_del');
+//用户修改
+Route::any('/renter_update','RenterController@renter_update');
+//用户修改操作
+Route::any('/renter_updatepro','RenterController@renter_updatepro');
+
+
 
 //跳转到导航列表
 Route::any('/nav_list','NavController@nav_list');
@@ -63,6 +73,14 @@ Route::any('/nav_add','NavController@nav_add');
 Route::any('/house_list','HouseController@house_list');
 //跳转到房源添加页面
 Route::any('/house_add','HouseController@house_add');
+//执行房源添加操作
+Route::any('/add_pro','HouseController@add_pro');
+//执行房源删除操作
+Route::any('/house_del','HouseController@house_del');
+//房源修改
+Route::any('/house_update','HouseController@house_update');
+//执行房源修改操作
+Route::any('/house_updatepro','HouseController@house_updatepro');
 
 
 
