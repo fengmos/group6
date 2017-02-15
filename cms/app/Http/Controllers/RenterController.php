@@ -10,37 +10,26 @@ use Request;
 use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 /**
- * 后台控制器
- * @author  chenyang 
- * @return  void
+ * 租户控制器
+ * @author   liyang
  */
-class IndexController extends CommonController
+class RenterController extends CommonController
 {
     /**
-     * 后台首页
+     * 租户列表
      * @return [type] [description]
      */
-    public function index()
+    public function renter_show()
     {
-        return view('Index.index');
+        return view('rent.renter_show');
     }
 
     /**
-     * 左侧公共导航
+     * 租户添加
      * @return [type] [description]
      */
-    public function nav_left()
+    public function renter_add()
     {
-    	return view('common/nav_left');
+        return view('rent.renter_add');
     }
-
-    /**
-     * 顶部公共导航
-     * @return [type] [description]
-     */
-    public function top()
-    {
-    	return view('common/top');
-    }
-
 }

@@ -10,37 +10,25 @@ use Request;
 use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 /**
- * 后台控制器
+ * 房源控制器
  * @author  chenyang 
- * @return  void
  */
-class IndexController extends CommonController
+class HouseController extends CommonController
 {
     /**
-     * 后台首页
+     * 展示房源列表
      * @return [type] [description]
      */
-    public function index()
+    public function house_list()
     {
-        return view('Index.index');
+        return view('house/house_list');
     }
-
     /**
-     * 左侧公共导航
+     * 房源添加页面
      * @return [type] [description]
      */
-    public function nav_left()
+    public function house_add()
     {
-    	return view('common/nav_left');
+        return view('house/house_add');
     }
-
-    /**
-     * 顶部公共导航
-     * @return [type] [description]
-     */
-    public function top()
-    {
-    	return view('common/top');
-    }
-
 }

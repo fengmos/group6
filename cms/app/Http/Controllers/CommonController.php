@@ -10,13 +10,13 @@ use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 class CommonController extends BaseController
 {
-//    public function __construct(){
-//        $session = new Session;
-//        $ss=$session->get("u_name");
-//        if(empty($ss))
-//        {
-//            echo "<script>alert('没钱，逛什么妓院');location.href='login'</script>";
-//        }
-//    }
+    public function __construct(){
+        // $session = new Session;
+        // $ss=$session->get("u_name");
+        // if(empty($ss))
+        // {
+        //     echo "<script>alert('没钱，逛什么妓院');location.href='login'</script>";
+        // }
+    }
 }
 ?>
