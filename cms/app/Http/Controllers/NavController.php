@@ -34,17 +34,18 @@ class NavController extends CommonController
     //添加进数据库
     public function classify_ads(){
         //接收照片
-        $n_file = Request::file('n_img');
-        if($n_file->isValid()){
-            //获取文件名称
-            $clientName = $n_file -> getClientOriginalName();
-            $realPath = $n_file -> getRealPath();
-            //获取图片格式
-            $entension = $n_file -> getClientOriginalExtension();
-            //图片保存路径
-            $mimeTye = $n_file -> getMimeType();
-            $path = $n_file -> move('IMG');
+          $file = Request::file('n_img');
+        if($file->isValid()){
+            $clientName = $file->getClientOriginalName();    //客户端文件名称..
+            $tmpName = $file->getFileName();   //缓存在tmp文件夹中的文件名例如php8933.tmp 这种类型的.
+            $realPath = $file->getRealPath();     //这个表示的是缓存在tmp文件夹下的文件的绝对路径
+            $entension = $file->getClientOriginalExtension();   //上传文件的后缀.
+            $mimeTye = $file->getMimeType();    //也就是该资源的媒体类型
+            $newName =  $clientName . "." . $entension;    //定义上传文件的新名称
+            $path = $file->move('IMG', $newName);    //把缓存文件移动到制定文件夹
+            /*$data['r_img']=$path;*/
         }
+
         //接受其他变量
         $n_name=Request::input('n_name');
         $n_link=Request::input('n_link');
