@@ -23,49 +23,51 @@
         <div id="urHere">DouPHP 管理中心<b>></b><strong>新增房屋</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
             <h3><a href="{{url('house_list')}}" class="actionBtn">房屋列表</a>新增房屋</h3>
             <form action="house_updatepro" method="post" enctype="multipart/form-data">
-                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
-                    <input type="hidden" name="r_id"value="{{$data->r_id}}">
 
-                    <tr>
-                        <td align="right">房东名字</td>
-                        <td>
-                            <input type="text" name="r_name" value="" size="50" class="inpMain" />
-                        </td>
-                    </tr>
+                <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+                    @foreach($data as $v)
+                    <input type="hidden" name="rent_id"value="{{$v->rent_id}}">
+
+                    {{--<tr>--}}
+                        {{--<td align="right">房东名字</td>--}}
+                        {{--<td>--}}
+                            {{--<input type="text" name="r_name" value="{{$v->r_name}}" size="50" class="inpMain" />--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                     <tr>
                         <td width="90" align="right">房源地址</td>
                         <td>
-                            <input type="text" name="r_adress" value="{{$data->r_adress}}" size="80" class="inpMain" />
+                            <input type="text" name="r_adress" value="{{$v->r_adress}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td width="90" align="right">房源价格</td>
                         <td>
-                            <input type="text" name="r_price" value="{{$data->r_price}}" size="80" class="inpMain" />
+                            <input type="text" name="r_price" value="{{$v->r_price}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td width="90" align="right">位置(楼层高度)</td>
                         <td>
-                            <input type="text" name="r_floor" value="{{$data->r_area}}" size="80" class="inpMain" />
+                            <input type="text" name="r_floor" value="{{$v->r_area}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td width="90" align="right">面积</td>
                         <td>
-                            <input type="text" name="r_area" value="{{$data->r_floor}}" size="80" class="inpMain" />
+                            <input type="text" name="r_area" value="{{$v->r_floor}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td width="90" align="right">房源类型（几室几厅）</td>
                         <td>
-                            <input type="text" name="r_type" value="{{$data->r_type}}" size="80" class="inpMain" />
+                            <input type="text" name="r_type" value="{{$v->r_type}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td width="90" align="right">装修</td>
                         <td>
-                            <input type="text" name="r_fixture" value="{{$data->r_fixture}}" size="80" class="inpMain" />
+                            <input type="text" name="r_fixture" value="{{$v->r_fixture}}" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
@@ -105,6 +107,7 @@
                             <input name="submit" class="btn" type="submit" value="修改" />
                         </td>
                     </tr>
+                        @endforeach
                 </table>
             </form>
         </div>
