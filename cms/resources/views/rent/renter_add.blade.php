@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td width="350" valign="top">
-                        <form action="slide_show" method="post" enctype="multipart/form-data">
+                        <form action="renter_add_pro" method="post" enctype="multipart/form-data">
                             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
                                 <tr>
                                     <td><b>用户名称：</b>

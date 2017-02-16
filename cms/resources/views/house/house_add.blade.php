@@ -22,7 +22,7 @@
         <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心<b>></b><strong>新增房屋</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
             <h3><a href="{{url('house_list')}}" class="actionBtn">房屋列表</a>新增房屋</h3>
-            <form action="{{url('house_add')}}" method="post" enctype="multipart/form-data">
+            <form action="add_pro" method="post" enctype="multipart/form-data">
                 <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                     <tr>
                         <td align="right">房东名字</td>
@@ -33,7 +33,7 @@
                     <tr>
                         <td width="90" align="right">房源地址</td>
                         <td>
-                            <input type="text" name="adress" value="" size="80" class="inpMain" />
+                            <input type="text" name="r_adress" value="" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
