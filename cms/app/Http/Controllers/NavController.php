@@ -42,7 +42,9 @@ class NavController extends CommonController
             $entension = $file->getClientOriginalExtension();   //上传文件的后缀.
             $mimeTye = $file->getMimeType();    //也就是该资源的媒体类型
             $newName =  $clientName . "." . $entension;    //定义上传文件的新名称
-            $path = $file->move('IMG', $newName);    //把缓存文件移动到制定文件夹
+            $path = $file->move('IMG', $newName); 
+            $new_path = str_replace('\','/',$path);
+            //把缓存文件移动到制定文件夹
             /*$data['r_img']=$path;*/
         }
 
@@ -51,7 +53,7 @@ class NavController extends CommonController
         $n_link=Request::input('n_link');
         $n_status=Request::input('n_status');
         $n_order=Request::input('n_order');
-        $user=array('n_name'=>$n_name,'n_link'=>$n_link,'n_status'=>$n_status,'n_order'=>$n_order,'n_img'=>$path);
+        $user=array('n_name'=>$n_name,'n_link'=>$n_link,'n_status'=>$n_status,'n_order'=>$n_order,'n_img'=>$new_path);
         $res = DB::table('r_nav')->insert($user);
         if($res)
         {
