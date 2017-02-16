@@ -94,7 +94,7 @@ class RenterController extends CommonController
         $id=$_GET['id'];
 
         $data = DB::table('user')->where('user_id',$id)->first();
-        //dd($data);
+        dd($data);
         return view('rent.renter_update',['data'=>$data]);
 
 
@@ -115,7 +115,7 @@ class RenterController extends CommonController
             $data=DB::table('user')->get();
             return view('rent.renter_show',['data'=>$data]);
         }else{
-            echo 22;
+            die('失败');
         }
 
     }

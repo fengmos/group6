@@ -8,7 +8,9 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Request;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Session\Session;
+use App\House;
 /**
  * 房源控制器
  * @author  chenyang 
@@ -21,9 +23,44 @@ class HouseController extends CommonController
      */
     public function house_list()
     {
-        $data=DB::table('rent_house')->get();
-        //dd($data);die;
-        return view('house/house_list',['data'=>$data]);
+
+        $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
+        //dd($data);
+        //获取当前数据总条数
+        // $data = DB::select('');
+        //$users = DB::table('rent_house')->simplePaginate(3);
+
+        // return view('user.index', ['users' => $users]);
+
+        return view('house/house_list', ['data' => $data]);
+    }
+        /*
+         * 搜索列表
+         */
+    public function house_search(Request $request){
+        $data=$request::all();
+       // dd($data);
+        $type=$data['type'];
+        $r_name=$data['r_name'];
+        //echo $type;echo $r_name;die;
+        //如果只是查询类型
+        if(empty($r_name)&& !empty($type)){
+
+            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_type like '%$type%'");
+            return view('house/house_list', ['data' => $data]);
+         }else if(empty($type)&& !empty($r_name)){
+            //如果没有输入类型  只是查询房东名字
+            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_name like '%$r_name%'");
+
+            return view('house/house_list',['data'=>$data]);
+        }else if(empty($type)&& empty($r_name)){
+            $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
+            return view('house/house_list', ['data' => $data]);
+
+        }else{
+            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_name like '%$r_name%' and r_type like '%$type%'");
+            return view('index.list',['data'=>$data]);
+        }
     }
     /**
      * 房源添加页面
@@ -64,10 +101,10 @@ class HouseController extends CommonController
                     'r_img'=>$data['r_img'],
                 ));
             if($res){
-                $data=DB::table('rent_house')->get();
+                $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
                 return view('house.house_list',['data'=>$data]);
             }else{
-                echo 2;
+               die('失败');
             }
 
         }
@@ -78,22 +115,24 @@ class HouseController extends CommonController
     */
     public function house_del(Request $request)
     {
-        $id = $_GET['id'];
+        $id = $_GET['rent_id'];
         //echo $id;die;
-        $res = DB::table('rent_house')->where('r_id', '=', $id)->delete();
+        $res = DB::table('rent_house')->where('rent_id', '=', $id)->delete();
         if ($res) {
-            $data = DB::table('rent_house')->get();
+            $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
             return view('house/house_list',['data'=>$data]);
         } else {
-            echo "失败";
+            die("失败");
         }
     }
     /*
     * 修改数据
     */
     public function house_update(){
-        $id=$_GET['id'];
-        $data = DB::table('rent_house')->where('r_id',$id)->first();
+        $id=$_GET['rent_id'];
+        $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where rent_id='$id'");
+
+       // $data = DB::table('rent_house')->where('rent_id',$id)->first();
         //dd($data);
         return view('house/house_update',['data'=>$data]);
 
@@ -105,7 +144,7 @@ class HouseController extends CommonController
         $data=$request::all();
         //dd($data);
         $res=DB::table('rent_house')
-            ->where('r_id',$data['r_id'] )
+            ->where('rent_id',$data['rent_id'] )
             ->update(array('r_adress' => $data['r_adress'],
                     'r_price' => $data['r_price'],
                     'r_area' => $data['r_area'],
@@ -117,7 +156,7 @@ class HouseController extends CommonController
                 )
             );
         if($res){
-            $data=DB::table('rent_house')->get();
+            $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
             return view('house/house_list',['data'=>$data]);
         }else{
             echo "no fail";
