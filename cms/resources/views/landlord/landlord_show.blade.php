@@ -8,6 +8,15 @@
     <link href="css/public.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/global.js"></script>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+
 </head>
 <body>
 <div id="dcWrap">
@@ -22,47 +31,52 @@
     <div id="dcMain">
         <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心<b>></b><strong>房东管理</strong> </div>   <div class="mainBox imgModule">
-            <h3>房东管理</h3>
-            <h3><a href="landlord_add" class="actionBtn">房东商户</a></h3>
+            <h3>房东管理
+<a href="landlord_add" class="actionBtn">房东添加</a>
+            </h3>
+
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                 <tr>
-                    <th>房东列表</th>
+                    <td style="height:50px;align:center">房东列表</td>
                 </tr>
-                <tr>
+                <tr align="center">
 
                     <td valign="top">
-                        <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+                        <table width="100%" border="0" cellpadding="8" cellspacing="5" class="tableOnebor" align="center">
                             <tr>
-                                <td width="100">商户名称</td>
-                                <td></td>
-                                <td width="50" align="center">排序</td>
-                                <td width="80" align="center">操作</td>
+                                <td height="50">ID</td>
+                                <td width="80">房东名称</td>
+                                <td>性别</td>
+                                <td>联系邮箱</td>
+                                <td>添加时间</td>
+                                <td>联系方式</td>
+                                <td>操作</td>
                             </tr>
+                            @foreach($landlord_list as $v)
                             <tr>
-                                <td><a href="http://www.weiqing.com/data/slide/20130514acunau.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514acunau_thumb.jpg" width="100" /></a></td>
-                                <td>广告图片01</td>
-                                <td align="center">1</td>
-                                <td align="center"><a href="editshow.html?id=1">编辑</a> | <a href="delshow.htmlid=1">删除</a></td>
+                                <td height="50">{{$v['r_id']}}</td>
+                                <td>{{$v['r_name']}}</td>
+                                <td>
+                                @if($v['r_sex'] == 1)
+                                男
+                                @elseif($v['r_sex'] == 2)
+                                女
+                                @endif
+
+
+
+                                </td>
+                                <td>{{$v['r_email']}}</td>
+                                <td>{{date('Y-m-d H:i:s',$v['r_time'])}}</td>         
+                                <td>{{$v['r_tel']}}</td>
+                                <td>
+                <a class="btn btn-success" href="{{url('landlord_update')}}?r_id={{$v['r_id']}}">编辑</a>
+                <a class="btn btn-danger" href="javascript:void(0)" id="renter_del" value="{{$v['r_id']}}"> 删除</a></td>
+                              
                             </tr>
-                            <tr>
-                                <td><a href="http://www.weiqing.com/data/slide/20130514rjzqdt.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514rjzqdt_thumb.jpg" width="100" /></a></td>
-                                <td>广告图片02</td>
-                                <td align="center">2</td>
-                                <td align="center"><a href="editshow.html?id=2">编辑</a> | <a href="delshow.htmlid=2">删除</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="http://www.weiqing.com/data/slide/20130514xxsctt.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130514xxsctt_thumb.jpg" width="100" /></a></td>
-                                <td>广告图片03</td>
-                                <td align="center">3</td>
-                                <td align="center"><a href="editshow.html?id=3">编辑</a> | <a href="delshow.htmlid=3">删除</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="http://www.weiqing.com/data/slide/20130523hiqafl.jpg" target="_blank"><img src="http://www.weiqing.com/data/slide/thumb/20130523hiqafl_thumb.jpg" width="100" /></a></td>
-                                <td>广告图片04</td>
-                                <td align="center">4</td>
-                                <td align="center"><a href="editshow.html?id=4">编辑</a> | <a href="delshow.htmlid=4">删除</a></td>
-                            </tr>
+                            @endforeach
                         </table>
+                        {{$landlord_list->render()}}
                     </td>
                 </tr>
             </table>
@@ -79,3 +93,32 @@
     <div class="clear"></div> </div>
 </body>
 </html>
+<script src="jquery-1.8.1.min.js"></script>
+<script>
+    $('.btn-danger').click(function(){
+        var r_id = $(this).attr('value');
+        var _this = $(this);
+        $.ajax({
+            type:"get",
+            url:"{{url('landlord_delete')}}",
+            data:"r_id="+r_id,
+            dataType:"json",
+            success:function(msg)
+            {
+               if(msg.status == 1)
+               {
+                    alert(msg.msg);
+                    _this.parent().parent().remove();
+               }
+               else if(msg.status == 2)
+               {
+                    alert(msg.msg);
+               }
+                else if(msg.status == 3)
+               {
+                    alert(msg.msg);
+               }
+            }
+        })
+    })
+</script>
