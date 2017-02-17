@@ -162,4 +162,14 @@ class HouseController extends CommonController
             echo "no fail";
         }
     }
+    /*
+     * 详情页的展示
+     */
+    public  function house_minute(Request $request){
+        $id = $_GET['id'];
+        $name=$_GET['name'];
+        $data = DB::table('rent_house')->where('rent_id', '=', $id)->get();
+        //dd($data);
+        return view('house.house_minute',['data'=>$data,'name'=>$name]);
+    }
 }

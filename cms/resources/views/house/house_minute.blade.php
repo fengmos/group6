@@ -12,16 +12,16 @@
 <body>
 <div id="dcWrap">
     <div id="dcHead">
-       {{--顶部公共页面--}}
-    @include('common/top')
+        {{--顶部公共页面--}}
+        @include('common/top')
     </div>
     <!-- dcHead 结束 --> <div id="dcLeft">
-   {{--左侧公共页面--}}
-    @include('common/nav_left')</div>
+        {{--左侧公共页面--}}
+        @include('common/nav_left')</div>
     <div id="dcMain">
         <!-- 当前位置 -->
-        <div id="urHere">DouPHP 管理中心<b>></b><strong>房屋列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="house_add" class="actionBtn add">新增房屋</a>房屋列表</h3>
+        <div id="urHere">DouPHP 管理中心<b></b><strong>房屋详情</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3><a href="house_list" class="actionBtn add">爱屋及乌</a>房主：{{$name}}</h3>
             <div class="filter">
                 <form action="house_search" method="post">
                     <select name="cat_id">
@@ -43,26 +43,31 @@
                         <tr>
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
                             <th width="40" align="center">编号</th>
-                            <th align="center">房屋名称</th>
-                            <th width="80" align="center">房东</th>
-                            <th width="150" align="center">房屋价格</th>
-                            <th width="80" align="center">房屋类型</th>
-                            <th width="80" align="center">操作</th>
+                            <th align="center">房屋地址</th>
+                            <th width="80" align="center">房屋价格</th>
+                            <th width="150" align="center">类型</th>
+                            <th width="80" align="center">租赁方式</th>
+                            <th width="80" align="center">装修</th>
+                            <th width="80" align="center">面积</th>
+                            <th width="80" align="center">楼层</th>
+                            <th width="80" align="center">照片</th>
                         </tr>
                         @foreach($data as $v)
 
                             <tr>
                                 <td align="center"><input type="checkbox" name="checkbox[]" value="10" /></td>
                                 <td align="center">{{$v->rent_id}}</td>
-                                <td align="center"><a href="house_minute?id={{$v->rent_id}}&&name={{$v->r_name}}">{{$v->r_adress}}</a></td>
-                                <td><a href="article.php?rec=edit&id=10">{{$v->r_name}}</a></td>
-                                <td align="center"><a href="article.php?cat_id=1">{{$v->r_price}}</a></td>
+                                <td align="center">{{$v->r_adress}}</td>
+                                <td align="center">{{$v->r_price}}</td>
                                 <td align="center">{{$v->r_type}}</td>
-                                <td align="center">
-                                    <a href="house_update?rent_id={{$v->rent_id}}">编辑</a> | <a href="house_del?rent_id={{$v->rent_id}}">删除</a>
-                                </td>
+                                <td align="center">{{$v->r_way}}</td>
+                                <td align="center">{{$v->r_fixture}}</td>
+                                <td align="center">{{$v->r_area}}</td>
+                                <td align="center">{{$v->r_floor}}</td>
+                                <td align="center"><img src="{{$v->r_img}}" width="80" height="100"></td>
+
                             </tr>
-                        @endforeach
+                            @endforeach
 
                     </table>
                     <div class="action">
@@ -79,7 +84,7 @@
                         <input name="submit" class="btn" type="submit" value="执行" />
                     </div>
                 </form>
-        </div>
+            </div>
             <div class="clear"></div>
             {{--{!! $data->render() !!}--}}
             <div class="pager">总计 10 个记录，共 1 页，当前第 1 页 | <a href="article.php?page=1">第一页</a> 上一页 下一页 <a href="article.php?page=1">最末页</a></div>           </div>
@@ -95,17 +100,7 @@
     <div class="clear"></div> </div>
 <script type="text/javascript">
 
-    onload = function()
-    {
-        document.forms['action'].reset();
-    }
 
-    function douAction()
-    {
-        var frm = document.forms['action'];
-
-        frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
-    }
 
 </script>
 </body>
