@@ -1,4 +1,9 @@
+<?php
 
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,18 +27,21 @@
     <div id="dcMain">
         <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心<b>></b><strong>房东管理</strong> </div>   <div class="mainBox imgModule">
-            <h3>房东管理</h3>
+            <h3>房东管理
+<a href="landlord_list" class="actionBtn">房东列表</a>
+            </h3>
             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                 <tr>
                     <th>房东管理</th>
                 </tr>
                 <tr>
                     <td width="350" valign="top">
-                        <form action="nav_show" method="post" enctype="multipart/form-data">
+                        <form action="{{url('landlord_add')}}" method="post" enctype="multipart/form-data">
                             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
                                 <tr>
                                     <td><b>房东名称：</b>
-                                        <input type="text" name="r_name"  size="20" class="inpMain" />
+                                        <input type="text" name="r_name"  size="20" class="inpMain" id="r_name"/>
+                                        <span id="r_name_info"></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -53,7 +61,7 @@
                                 <tr>
                                     <td><b>性别</b>
                                         <input type="radio" name="r_sex" value="1" size="20" class="inpMain">男
-                                        <input type="radio" name="r_sex" value="0" size="20" class="inpMain">女
+                                        <input type="radio" name="r_sex" value="2" size="20" class="inpMain">女
                                     </td>
                                 </tr>
                                 <tr>
@@ -63,7 +71,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="hidden" name="token" value="79db104d" />
+        
                                         <input name="submit" class="btn" type="submit" value="提交" />
                                     </td>
                                 </tr>
@@ -83,5 +91,29 @@
         </div>
     </div><!-- dcFooter 结束 -->
     <div class="clear"></div> </div>
+
 </body>
 </html>
+<script src="jquery-1.8.1.min.js"></script>
+<script>
+    $('#r_name').blur(function(){
+        var r_name = $(this).val();
+        $.ajax({
+            url:"{{url('landlord_add')}}",
+            type:'post',
+            data:"r_name="+r_name,
+            dataType:'json',
+            success:function(msg)
+            {
+                //alert(msg);
+                if(strlen(msg.r_name)> 0)
+                {
+                    $('#r_name_info').html(1111);            
+                }
+            }
+        })
+
+    })
+
+
+</script>
