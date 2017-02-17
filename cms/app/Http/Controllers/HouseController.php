@@ -8,9 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Request;
 use DB;
-use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Session\Session;
-use App\House;
 /**
  * 房源控制器
  * @author  chenyang 
@@ -23,44 +21,7 @@ class HouseController extends CommonController
      */
     public function house_list()
     {
-
-        $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
-        //dd($data);
-        //获取当前数据总条数
-        // $data = DB::select('');
-        //$users = DB::table('rent_house')->simplePaginate(3);
-
-        // return view('user.index', ['users' => $users]);
-
-        return view('house/house_list', ['data' => $data]);
-    }
-        /*
-         * 搜索列表
-         */
-    public function house_search(Request $request){
-        $data=$request::all();
-       // dd($data);
-        $type=$data['type'];
-        $r_name=$data['r_name'];
-        //echo $type;echo $r_name;die;
-        //如果只是查询类型
-        if(empty($r_name)&& !empty($type)){
-
-            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_type like '%$type%'");
-            return view('house/house_list', ['data' => $data]);
-         }else if(empty($type)&& !empty($r_name)){
-            //如果没有输入类型  只是查询房东名字
-            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_name like '%$r_name%'");
-
-            return view('house/house_list',['data'=>$data]);
-        }else if(empty($type)&& empty($r_name)){
-            $data = DB::select('select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id');
-            return view('house/house_list', ['data' => $data]);
-
-        }else{
-            $data = DB::select("select * from rent_house INNER JOIN renter on rent_house.landlord_id=renter.r_id where r_name like '%$r_name%' and r_type like '%$type%'");
-            return view('index.list',['data'=>$data]);
-        }
+        return view('house/house_list');
     }
     /**
      * 房源添加页面
@@ -70,6 +31,7 @@ class HouseController extends CommonController
     {
         return view('house/house_add');
     }
+
     /*
      * 执行添加房源操作
      */
@@ -172,4 +134,5 @@ class HouseController extends CommonController
         //dd($data);
         return view('house.house_minute',['data'=>$data,'name'=>$name]);
     }
+
 }

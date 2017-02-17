@@ -23,15 +23,14 @@
         <div id="urHere">DouPHP 管理中心<b>></b><strong>房屋列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
             <h3><a href="house_add" class="actionBtn add">新增房屋</a>房屋列表</h3>
             <div class="filter">
-                <form action="house_search" method="post">
+                <form action="article.php" method="post">
                     <select name="cat_id">
                         <option value="0" >—请选择分类—</option>
                         <option value="1"> 大户型</option>
                         <option value="2"> 中小户型</option>
                     </select>
-                    <input  name="type" class="inpMain" placeholder="请输入房屋类型" size="20" />
-                    <input  name="r_name" class="inpMain" placeholder="请输入房东名称" size="20" />
-                    <input name="submit" class="btnGray" type="submit" value="搜索" />
+                    <input name="keyword" type="text" class="inpMain" value="" size="20" />
+                    <input name="submit" class="btnGray" type="submit" value="筛选" />
                 </form>
     <span>
         <a class="btnGray" href="article.php?rec=sort">开始筛选</a>
@@ -43,12 +42,12 @@
                         <tr>
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
                             <th width="40" align="center">编号</th>
-                            <th align="center">房屋名称</th>
-                            <th width="80" align="center">房东</th>
-                            <th width="150" align="center">房屋价格</th>
-                            <th width="80" align="center">房屋类型</th>
+                            <th align="left">房屋名称</th>
+                            <th width="150" align="center">房屋分类</th>
+                            <th width="80" align="center">添加日期</th>
                             <th width="80" align="center">操作</th>
                         </tr>
+
                         @foreach($data as $v)
 
                             <tr>
@@ -64,6 +63,7 @@
                             </tr>
                         @endforeach
 
+                     
                     </table>
                     <div class="action">
                         <select name="action" onchange="douAction()">
@@ -79,9 +79,8 @@
                         <input name="submit" class="btn" type="submit" value="执行" />
                     </div>
                 </form>
-        </div>
+            </div>
             <div class="clear"></div>
-            {{--{!! $data->render() !!}--}}
             <div class="pager">总计 10 个记录，共 1 页，当前第 1 页 | <a href="article.php?page=1">第一页</a> 上一页 下一页 <a href="article.php?page=1">最末页</a></div>           </div>
     </div>
     <div class="clear"></div>

@@ -50,19 +50,19 @@
             <a class="back" href="{{url('fd_login')}}">&lt;&nbsp;返回</a>
         </div>
         <div class="content">
-            <form action="">
+            <form action="{{url('check_password')}}" method="post">
                 <div class="message">
-                    <input type="email" placeholder="邮箱"  required/>
-                    <input type="text" placeholder="输入验证码" pattern="[0-9]{6}" required/>
-                    <input type="password" placeholder="请输入新密码" pattern="[0-9A-Za-z]{6,25}" required/>
-                    <input type="password" placeholder="请再次输入密码" pattern="[0-9A-Za-z]{6,25}" required/>
+                    <input type="email" name="email" placeholder="邮箱"  required/>
+                    <input name="code" type="text"  placeholder="输入验证码" pattern="[0-9]{4}" required/>
+                    <input type="password" name="password" placeholder="请输入新密码" pattern="[0-9A-Za-z]{6,25}" required/>
+                    <input type="password" name="password1" placeholder="请再次输入密码" pattern="[0-9A-Za-z]{6,25}" required/>
                     <div class="icons">
                         <b><img src="{{url('static_wx/img')}}/email.png" alt=""/></b>
                         <b><img src="{{url('static_wx/img')}}/zc-2.jpg" alt=""/></b>
                         <b><img src="{{url('static_wx/img')}}/zc-3.jpg" alt=""/></b>
                         <b><img src="{{url('static_wx/img')}}/zc-3.jpg" alt=""/></b>
                     </div>
-                    <a class="code" href="">获取验证码</a>
+                    <a class="code" href="javascript:void(0)">获取验证码</a>
                 </div>
                 <button class="submit" type="submit">找回密码</button>
             </form>
@@ -70,3 +70,17 @@
     </div>
 </body>
 </html>
+<script src="http://kjschoolttt.oss-cn-beijing.aliyuncs.com/jquery-1.8.3.min.js"></script>
+<script>
+    $('.code').click(function(){
+        var email = $("input[name=email]").val();
+        $.ajax({
+            type:"post",
+            data:'email='+email,
+            dataType:'json',
+            url:"{{url('newPassword')}}",
+            success:function(msg){
+                alert(msg.msg);
+            }
+        })    })
+</script>
