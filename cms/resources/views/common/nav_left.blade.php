@@ -16,6 +16,8 @@
                 <ul>
                     <li><a href="nav_list"><i class="articleCat"></i><em>导航管理</em></a></li>
                     <li><a href="house_list"><i class="article"></i><em>房源管理</em></a></li>
+                    <li><a href="picture_list"><i class="show"></i><em>图片管理</em></a></li>
+
                 </ul>
             </ul>
             <ul class="bot">

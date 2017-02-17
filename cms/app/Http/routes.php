@@ -64,6 +64,32 @@ Route::any('/house_list','HouseController@house_list');
 //跳转到房源添加页面
 Route::any('/house_add','HouseController@house_add');
 
+//执行房源添加操作
+Route::any('/add_pro','HouseController@add_pro');
+//执行房源删除操作
+Route::any('/house_del','HouseController@house_del');
+//房源修改
+Route::any('/house_update','HouseController@house_update');
+//执行房源修改操作
+Route::any('/house_updatepro','HouseController@house_updatepro');
+//执行房源搜索功能
+Route::any('/house_search','HouseController@house_search');
+//房源详情页展示
+Route::any('/house_minute','HouseController@house_minute');
+
+
+//图片管理
+Route::any('/picture_list','PictureController@picture_list');
+//新增图片
+Route::any('/picture_add','PictureController@picture_add');
+//执行添加图片操作
+Route::any('/picture_add_pro','PictureController@picture_add_pro');
+//执行图片的删除操作
+Route::any('/picture_del','PictureController@picture_del');
+
+
+
+
 
 
 
