@@ -12,12 +12,12 @@
 <body>
 <div id="dcWrap">
     <div id="dcHead">
-                     {{--顶部公共页面--}}
-    @include('common/top')
+        {{--顶部公共页面--}}
+        @include('common/top')
     </div>
     <!-- dcHead 结束 --> <div id="dcLeft">
         {{--左侧公共页面--}}
-    @include('common/nav_left')
+        @include('common/nav_left')
     </div>
     <div id="dcMain">
         <!-- 当前位置 -->
@@ -29,31 +29,33 @@
                 </tr>
                 <tr>
                     <td width="350" valign="top">
-                        <form action="renter_add_pro" method="post" enctype="multipart/form-data">
+                        <form action="renter_updatepro" method="post" enctype="multipart/form-data">
                             <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableOnebor">
+                                <input type="hidden" name="user_id"value="{{$data->user_id}}">
+
                                 <tr>
                                     <td><b>用户名称：</b>
-                                        <input type="text" name="username" value="" size="20" class="inpMain" />
+                                        <input type="text" name="username" value="{{$data->username}}" size="20" class="inpMain" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>用户密码</b>
-                                        <input type="password" name="password" class="inpFlie" />          </td>
+                                        <input type="password" name="password" value="{{$data->password}}" class="inpFlie" />          </td>
                                 </tr>
                                 <tr>
                                     <td><b>电话号码</b>
-                                        <input type="text" name="mobile_phone" value="" size="40" class="inpMain" />
+                                        <input type="text" name="mobile_phone" value="{{$data->mobile_phone}}" size="40" class="inpMain" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b>电子邮箱</b>
-                                        <input type="text" name="email"  size="20" class="inpMain" />
+                                        <input type="text" name="email" value="{{$data->email}}" size="20" class="inpMain" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <input type="hidden" name="token" value="79db104d" />
-                                        <input name="submit" class="btn" type="submit" value="提交" />
+                                        <input name="submit" class="btn" type="submit" value="修改" />
                                     </td>
                                 </tr>
                             </table>
