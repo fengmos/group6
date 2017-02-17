@@ -43,7 +43,11 @@ Route::get('map','WxController@map');
 Route::get('register','WxLoginController@register');
 
 //密码找回
-Route::get('newPassword','WxLoginController@newPassword');
+Route::any('newPassword','WxLoginController@newPassword');
+//密码修改
+Route::post('check_password','WxLoginController@check_password');
+
+
 
 //房东个人页面
 Route::get('fd_personal','WxController@fd_personal');
