@@ -10,6 +10,28 @@ use DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 class CommonController extends BaseController
 {
+<<<<<<< HEAD:wxcms/app/Http/Controllers/CommonController.php
+=======
+    public function __construct(){
+        // $session = new Session;
+        // $ss=$session->get("u_name");
+        // if(empty($ss))
+        // {
+        //     echo "<script>alert('没钱，逛什么妓院');location.href='login'</script>";
+        // }
+    }
+
+
+    public function get_json_info($status,$msg,$url,$wait_time)
+    {
+    	$arr = array('status'=>$status,'msg'=>$msg,'url'=>$url,'wait_time'=>$wait_time);
+    	return json_encode($arr);
+    }
+
+    public function get_message($status,$wait,$message,$url){
+        return view('common/message',array('status'=>$status,'wait'=>$wait,'message'=>$message,'url'=>$url));
+    }
+>>>>>>> bfb4de551a071aff0f093259ab1e70a24f70d5b0:cms/app/Http/Controllers/CommonController.php
 
 }
 

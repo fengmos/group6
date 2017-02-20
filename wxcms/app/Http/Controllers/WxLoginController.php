@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use DB;
 
 
@@ -13,6 +14,14 @@ class WxLoginController extends Controller
 {
    
 
+=======
+use App\Users;
+use Mail;
+class WxLoginController extends Controller
+{
+   
+    public $email;
+>>>>>>> bfb4de551a071aff0f093259ab1e70a24f70d5b0
    public function index(){
 
 
@@ -26,9 +35,43 @@ class WxLoginController extends Controller
     }
 
     //找回密码
+<<<<<<< HEAD
     public function newPassword(){
 
         return view('static_wx/newPassword');
+=======
+    public function newPassword()
+    {
+        if(\Request::isMethod('post'))
+        {
+            $email = \Request::all()['email'];
+            $user_info = Users::where('email',$email)->first()->toArray();
+            $return = array('status'=>'','msg'=>'','url'=>'');
+            if(!empty($user_info) && is_array($user_info))
+            {
+                //存在数据
+                //发送邮件
+                $this->email = $user_info['email'];
+                $this->send();
+                $return['status'] = 1;
+                $return['msg'] = "邮件已发送到您的绑定邮箱，请注意查收";
+                return json_encode($return);
+            }
+            else
+            {
+                //不存在
+                $return['status'] = 2;
+                $return['msg'] = "邮件已发送到您的绑定邮箱，请注意查收";
+                return json_encode($return);
+            }
+
+        }
+        else
+        {
+            return view('static_wx/newPassword');
+        }
+        
+>>>>>>> bfb4de551a071aff0f093259ab1e70a24f70d5b0
     }
 
     //租户登录
@@ -37,6 +80,7 @@ class WxLoginController extends Controller
         return view('static_wx/zf_login');
     }
 
+<<<<<<< HEAD
     //第三方登录
 
     public function qqlogin(Request $Request){
@@ -135,10 +179,30 @@ class WxLoginController extends Controller
         }
 
 
+=======
+    public function send()
+    {
+        $num = Mail::raw('您现在正在使用爱乌及屋验证码，验证码为:'.$this->get_code(), function($message) {
+
+        $message->from('864912185@qq.com', 'NIan');
+        $message->subject('邮件主题');
+        $message->to($this->email);
+        });     
+    }
+
+    public function get_code()
+    {
+        $code = rand(1000,9999);
+        $user = Users::where('email',$this->email)->first();
+        $user->code = $code;
+        $user->save();
+        return $code;
+>>>>>>> bfb4de551a071aff0f093259ab1e70a24f70d5b0
     }
 
 
 
+<<<<<<< HEAD
     //房东登录页面
     public function fd_login(Request $Request){
 
@@ -207,4 +271,34 @@ class WxLoginController extends Controller
     }
 
 
+=======
+
+
+    public function check_password()
+    {
+        $data = \Request::all();
+        $user_info = Users::where('email',$data['email'])->first();
+        if($data['code'] == $user_info['code'] && !empty($user_info['code']))
+        {
+            if($data['password'] == $data['password1'])
+            {
+                //修改密码
+                $user_info->password = md5($data['password']);
+                $user_info->save();
+                if($user_info->save())
+                {
+                    echo "<script>alert('恭喜您密码修改成功')</script>";
+                }
+            }
+            else
+            {
+                echo "<script>alert('前后密码不一致')</script>";
+            }
+        }
+        else
+        {
+            echo "<script>alert('验证码错误，请重新验证')</script>";
+        }
+    }
+>>>>>>> bfb4de551a071aff0f093259ab1e70a24f70d5b0
 }

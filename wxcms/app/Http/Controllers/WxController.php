@@ -7,18 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\rent_house;
-use DB;
 
 class WxController extends Controller
 {
     //
     public function index(){
 
-        $like = DB::table('rent_house')->take(3)->get();
-
-
-        $data['like'] = $like;
-    	return view('static_wx/index',$data);
+    	return view('static_wx/index');
     }
 
     //房源列表
@@ -32,12 +27,9 @@ class WxController extends Controller
     }
 
     //房屋详情
-    public function housedetail($id,Request $request){
+    public function housedetail(){
 
-
-        $list = DB::table('rent_house')->where('rent_id',"$id")->first();
-        $data['list'] = $list;
-    	return view('static_wx/housedetail',$data);
+    	return view('static_wx/housedetail');
 
     }
 
@@ -47,34 +39,15 @@ class WxController extends Controller
     }
 
     //房东个人页面
-    public function fd_personal(Request $Request){
+    public function fd_personal(){
 
-        //判断房东是否登录
-        $fd_username = $Request->session()->get('fd_username');
-
-
-
-        if($fd_username){
-
-            $data['username'] = $fd_username;
-
-            return view('static_wx/fd_personal',$data);
-        }else{
-
-
-            return redirect('fd_login');
-        }
-
-
+        return view('static_wx/fd_personal');
     }
 
     //房东发布房源
-    public function add_housing(Request $request){
+    public function add_housing(){
 
-        $fd_id = $request->session()->get('fd_id');
-
-        $data['fd_id'] = $fd_id;
-        return view('static_wx/add_housing',$data);
+        return view('static_wx/add_housing');
     }
 
     //房东房源列表
@@ -96,38 +69,9 @@ class WxController extends Controller
     }
 
     //租户个人中心
-    public function zf_personal(Request $Request){
+    public function zf_personal(){
 
-
-        $username =  $Request->session()->get('username');
-        $openid =  $Request->session()->get('openid');
-
-
-        if(!empty($username)){
-
-
-//            $qqdata = DB::table('networklogin')->where('openid',$openid)->first();
-
-            $data['userinfo'] = $username;
-            $data['touxiang'] = url('static_wx/img/member.png');
-
-            return view('static_wx/zf_personal',$data);
-
-        }else if(!empty($openid)){
-
-
-            $qqdata = DB::table('networklogin')->where('openid',$openid)->first();
-
-            $data['userinfo'] = $qqdata->nickname;
-            $data['touxiang'] = $qqdata->figureurl_qq_2;
-
-            return view('static_wx/zf_personal',$data);
-        }else{
-
-            return redirect('zf');
-        }
-
-
+        return view('static_wx/zf_personal');
     }
 
     //房东修改密码
@@ -151,8 +95,6 @@ class WxController extends Controller
 
     //租户个人信息
     public function zf_personal_info(){
-
-
 
         return view('static_wx/zf_personal_info');
     }
