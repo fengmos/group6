@@ -225,8 +225,8 @@
         <div style=" height: 5.5rem; "></div>
         <div class="agent-foot">
         	<img class="agent-photo" src="{{url('static_wx/img')}}/test1.jpg"/>
-        	<p class="name">杨玉珍</p>
-        	<p class="tele">13247801383</p>
+        	<p class="name">{{$fd_info->r_name}}</p>
+        	<p class="tele">{{$fd_info->r_tel}}</p>
         	<div class="shop">
         		<a href="">
         			<span><img src="{{url('static_wx/img')}}/tele.png" width="18" height="20"/></span>

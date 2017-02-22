@@ -161,7 +161,7 @@
     @foreach($list as $k=>$v)
             
         	<li>
-        		<a href="{{url('housedetail')}}/{{$v->r_id}}.html">
+        		<a href="{{url('housedetail')}}/{{$v->rent_id}}.html">
         		<img class="house-pic" src="{{url('static_wx/img')}}/2.jpg" />
         		<p class="house-title">{{$v->r_title}}</p>
         		<p class="house-type">{{$v->r_type}}</p>

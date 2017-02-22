@@ -84,7 +84,7 @@
     <div style="height:50px; width:100%;"></div>
     <ul class="foot">
     	<li><a href="{{url('wx')}}"><img src="{{url('static_wx/img')}}/home.png" /><p>首页</p></a></li>
-    	<li><a href="{{url('housedetail')}}"><img src="{{url('static_wx/img')}}/ershoufang.png" /><p>二手房</p></a></li>
+    	<li><a href="{{url('rentlist')}}"><img src="{{url('static_wx/img')}}/ershoufang.png" /><p>二手房</p></a></li>
     	<li><a href="{{url('rentlist')}}"><img src="{{url('static_wx/img')}}/renting.png" /><p>租房</p></a></li>
     	<li><a href="{{url('zf')}}"><img src="{{url('static_wx/img')}}/menber.png" /><p>我</p></a></li>
     </ul>

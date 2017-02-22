@@ -92,6 +92,7 @@ Route::post('fd_personal','WxLoginController@fd_login');
 
 //房东发布房源
 Route::get('add_housing','WxController@add_housing');
+Route::post('add_housing','WxController@add_housing');
 
 //房东房源列表
 Route::get('agent','WxController@agent_list');
@@ -129,6 +130,10 @@ Route::get('qqlogin','WxLoginController@qqlogin');
 
 //普通用户
 Route::post('odu','WxLoginController@ordinaryUser');
+
+//房东图片上传
+Route::post('fileUpload','WxController@fileUpload');
+Route::get('fileUpload','WxController@fileUpload');
 
 
 
