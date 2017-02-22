@@ -46,8 +46,8 @@
 	</header>
 	<nav class="nav1">
 		<a href="" class="home" style="margin-left: 0.938rem;">爱屋网</a>
-		<a href=""  class="home">二手房</a>
-		<a href="">北京二手房</a>
+		<a href=""  class="home">租房</a>
+		<a href="">北京租房</a>
 	</nav>
 	<!--图片轮换-->
 	<div class="block_home_slider">
@@ -56,10 +56,7 @@
                                 	<li>
                                     	<div class="slide">
                                             <img src="{{url('static_wx/img')}}/pic_home_slider_1.jpg" alt="" />
-                                            <!--<div class="caption">
-                                                <p class="title">国内金准营销服务中心</p>
-                                                <p>90天让您的网站升级100倍。国内金准营销服务中心.国内金准营销服务中心国内金准营销服务中心国内金准营销服务中心国内金准营销服务中心</p>
-                                            </div>-->
+
                                         </div>
                                     </li>
 
@@ -80,12 +77,9 @@
                                     </li>
 
                                     <li>
-                                    	<div class="slide">
+                                        <div class="slide">
                                             <img src="{{url('static_wx/img')}}/pic_home_slider_4.jpg" alt="" />
-                                            <!--<div class="caption">
-                                                <p class="title">国内金准营销服务中心</p>
-                                                <p>90天让您的网站升级100倍。国内金准营销服务中心.国内金准营销服务中心国内金准营销服务中心国内金准营销服务中心国内金准营销服务中心</p>
-                                            </div>-->
+
                                         </div>
                                     </li>
 

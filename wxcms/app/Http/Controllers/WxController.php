@@ -42,7 +42,7 @@ class WxController extends Controller
 
 
 
-       
+
         $data['fd_info'] = $fdinfo;
         $data['list'] = $list;
 
