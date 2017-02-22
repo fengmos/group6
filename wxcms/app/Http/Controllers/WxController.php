@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\rent_house;
 use DB;
-
+use App\History;
 class WxController extends Controller
 {
     //
@@ -34,22 +34,36 @@ class WxController extends Controller
     }
 
     //房屋详情
-    public function housedetail($id,Request $request){
-
-
-        $list = DB::table('rent_house')->where('rent_id',"$id")->first();
-        $fdinfo = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
-
-
-
-
-        $data['fd_info'] = $fdinfo;
-        $data['list'] = $list;
-
-
+    public function housedetail($id,Request $request)
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $result = History::where(array('ip'=>$ip,'rent_id'=>$id))->get()->toArray();
+        // dd($result);
+        if(is_array($result) && !empty($result))
+        {
+            //存在数据
+            $data['list'] = DB::table('rent_house')->where('rent_id',"$id")->first();
+            $data['fdinfo'] = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
+        }
+        else
+        {
+            //新增历史
+            $history = new History;
+            $history->ip = $ip;
+            $history->rent_id = $id;
+            $history->save();
+            //调取数据
+            $data['list'] = DB::table('rent_house')->where('rent_id',"$id")->first();
+            $data['fdinfo'] = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
+        }
+        
     	return view('static_wx/housedetail',$data);
 
     }
+
+
+
+
 
     public function map(){
 
