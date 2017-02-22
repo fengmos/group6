@@ -118,6 +118,7 @@ Route::get('zf_update_pass','WxController@zf_update_pass');
 
 //房东个人信息
 Route::get('personal_info','WxController@personal_info');
+Route::post('personal_info','WxController@personal_info');
 
 //租户个人信息
 Route::get('zf_personal_info','WxController@zf_personal_info');

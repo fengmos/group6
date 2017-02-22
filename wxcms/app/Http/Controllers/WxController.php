@@ -38,10 +38,15 @@ class WxController extends Controller
 
 
         $list = DB::table('rent_house')->where('rent_id',"$id")->first();
-        $fdinfo = DB::table('renter')->where('r_id',$list->rent_id)->select('r_tel','r_name')->first();
+        $fdinfo = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
 
+
+
+       
         $data['fd_info'] = $fdinfo;
         $data['list'] = $list;
+
+
     	return view('static_wx/housedetail',$data);
 
     }
@@ -107,9 +112,18 @@ class WxController extends Controller
     }
 
     //房东房源列表
-    public function agent_list(){
+    public function agent_list(Request $request){
 
-        return view('static_wx/agentdetail');
+        $fd_id = $request->session()->get('fd_id');  //房东id
+        $list = DB::table('rent_house')->where('landlord_id',$fd_id)->get();
+
+        //房东信息
+        $fd_info = DB::table('renter')->where('r_id',$fd_id)->first();
+
+
+        $data['list'] = $list;
+        $data['fd_info'] = $fd_info;
+        return view('static_wx/agentdetail',$data);
     }
 
     //租客列表
@@ -172,9 +186,34 @@ class WxController extends Controller
     }
 
     //房东个人信息
-    public function personal_info(){
+    public function personal_info(Request $request){
+        $fd_id =  $request->session()->get('fd_id');
 
-        return view('static_wx/personal_info');
+        if($request->isMethod('post')){
+
+           $data = $request->input();
+            unset($data['_token']);
+
+
+           $res = DB::table('renter')
+                ->where('r_id', $fd_id)
+                ->update($data);
+
+            if($res){
+                echo "修改成功！";
+            }else{
+                echo "修改失败!";
+            }
+
+        }else{
+
+
+            $fd_info = DB::table('renter')->where('r_id',$fd_id)->first();
+
+            $data['fd_info'] = $fd_info;
+            return view('static_wx/personal_info',$data);
+        }
+
     }
 
 

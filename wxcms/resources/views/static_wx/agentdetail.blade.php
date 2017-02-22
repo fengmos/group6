@@ -18,7 +18,7 @@
 	<body>
 	
 		<header class="main2">
-			<a href="{{url('wx')}}" class="return"><img src="{{url('static_wx/img')}}/back.png" width="14" height="24"></a>
+			<a href="{{url('fd_personal')}}" class="return"><img src="{{url('static_wx/img')}}/back.png" width="14" height="24"></a>
             <span>房东</span>
             <a href="javascript:;" class="me" style="float: right; width: 24px; height: 24px;"></a>
 		</header>
@@ -26,9 +26,9 @@
 			<li style="margin:18px 0.938rem;">
 			  <img class="agent-pic" src="{{url('static_wx/img')}}/pic_home_slider_3.jpg"/>
 			  <div class="agent-introduct">
-			    <p class="agent-name">杨玉萍</p>
-			    <p>联系电话：13879139393</p>
-                <p>所属门店：三眼井</p>
+			    <p class="agent-name">{{$fd_info->r_name}}</p>
+			    <p>联系电话：{{$fd_info->r_tel}}</p>
+                <p>邮箱：{{$fd_info->r_email}}</p>
               </div>
               <div class="agent-weixin" id="ele9"><img src="{{url('static_wx/img')}}/test2.png"/></div>
               
@@ -39,61 +39,22 @@
          </div>
 		<div class="agent-title1">我的房源<img src="{{url('static_wx/img')}}/house1.png" width="24" height="25"/></div>
 		<ul class="house-list1">
+
+            @foreach($list as $k=>$v)
         	<li>
         		<a href="">
         		<img class="house-pic1" src="{{url('static_wx/img')}}/2.jpg">
-        		<p class="house-title">市中心真正的钻石广场杨家厂小区复式楼幼小</p>
-        		<p class="house-type"><span class="red">275万&nbsp; </span>17101元/m²</p>
-        		<p class="house-address">明德路 &nbsp; 4室2厅&nbsp;  150.12m²</p>
+        		<p class="house-title">{{$v->r_title}}</p>
+        		<p class="house-type"><span class="red">{{$v->r_price}}&nbsp; </span>{{$v->r_area}}</p>
+        		<p class="house-address">{{$v->r_adress}} &nbsp; {{$v->r_type}}&nbsp;</p>
         		<p class="house-tag">
         			<span class="xuequ">随时看房</span>
         		</p>
         		</a>
         	</li>
-        	<li>
-        		<a href="">
-        		<img class="house-pic1" src="{{url('static_wx/img')}}/2.jpg">
-        		<p class="house-title">市中心真正的钻石广场杨家厂小区复式楼幼小</p>
-        		<p class="house-type" ><span class="red">275万&nbsp; </span>17101元/m²</p>
-        		<p class="house-address" >明德路 &nbsp; 4室2厅&nbsp;  150.12m²</p>
-        		<p class="house-tag">
-        			<span class="xuequ">随时看房</span>
-        		</p>
-        		</a>
-        	</li>
-        	<li>
-        		<a href="">
-        		<img class="house-pic1" src="{{url('static_wx/img')}}/2.jpg">
-        		<p class="house-title">市中心真正的钻石广场杨家厂小区复式楼幼小</p>
-        		<p class="house-type" ><span class="red">275万&nbsp; </span>17101元/m²</p>
-        		<p class="house-address" >明德路 &nbsp; 4室2厅&nbsp;  150.12m²</p>
-        		<p class="house-tag">
-        			<span class="xuequ">随时看房</span>
-        		</p>
-        		</a>
-        	</li>
-        	<li>
-        		<a href="">
-        		<img class="house-pic1" src="{{url('static_wx/img')}}/2.jpg">
-        		<p class="house-title">市中心真正的钻石广场杨家厂小区复式楼幼小</p>
-        		<p class="house-type"><span class="red">275万&nbsp; </span>17101元/m²</p>
-        		<p class="house-address">明德路 &nbsp; 4室2厅&nbsp;  150.12m²</p>
-        		<p class="house-tag">
-        			<span class="xuequ">随时看房</span>
-        		</p>
-        		</a>
-        	</li>
-        	<li>
-        		<a href="">
-        		<img class="house-pic1" src="{{url('static_wx/img')}}/2.jpg">
-        		<p class="house-title">市中心真正的钻石广场杨家厂小区复式楼幼小</p>
-        		<p class="house-type" ><span class="red">275万&nbsp; </span>17101元/m²</p>
-        		<p class="house-address" >明德路 &nbsp; 4室2厅&nbsp;  150.12m²</p>
-        		<p class="house-tag">
-        			<span class="xuequ">随时看房</span>
-        		</p>
-        		</a>
-        	</li>
+                @endforeach
+
+
         
         	
         </ul>

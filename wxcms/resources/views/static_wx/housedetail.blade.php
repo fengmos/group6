@@ -62,7 +62,7 @@
                                             </div>-->
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                     	<div class="slide">
                                             <img src="{{url('static_wx/img')}}/pic_home_slider_2.jpg" alt="" />
@@ -72,13 +72,13 @@
                                             </div>-->
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                     	<div class="slide">
                                             <img src="{{url('static_wx/img')}}/pic_home_slider_3.jpg" alt="" />
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                     	<div class="slide">
                                             <img src="{{url('static_wx/img')}}/pic_home_slider_4.jpg" alt="" />
@@ -88,8 +88,8 @@
                                             </div>-->
                                         </div>
                                     </li>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
                             <div class="num-pic">1/5</div>
@@ -103,7 +103,7 @@
 										slideshow : false,
 										useCSS : false
 									});
-									
+
 								});
 							</script>
                         </div>
@@ -228,11 +228,11 @@
         	<p class="name">{{$fd_info->r_name}}</p>
         	<p class="tele">{{$fd_info->r_tel}}</p>
         	<div class="shop">
-        		<a href="">
+                <a href="tel:{{$fd_info->r_tel}}">
         			<span><img src="{{url('static_wx/img')}}/tele.png" width="18" height="20"/></span>
         			<P>致电</P>
         		</a>
-        		<a href="">
+                <a href="sms:{{$fd_info->r_tel}}">
         			<span><img src="{{url('static_wx/img')}}/duanxin.png" width="25" height="20"/></span>
         			<P>短信</P>
         		</a>
