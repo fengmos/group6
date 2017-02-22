@@ -57,9 +57,11 @@ class WxController extends Controller
             $data['fd_info'] = DB::table('renter')->where('r_id',$data['list']->landlord_id)->select('r_tel','r_name')->first();
         }
 
-//        $list_id = DB::table('history')->where('')->select('ip')->first();  //查询房屋被浏览过的ip
-//
-//        $list_id->ip;
+        //浏览过本房子的客户还浏览过哪些房子
+        $lishi = DB::select("select * from rent_house where rent_id in(select rent_id from history where ip = (select ip from history where rent_id = '2'))
+");
+
+        $data['lishi'] = $lishi;
     	return view('static_wx/housedetail',$data);
 
     }

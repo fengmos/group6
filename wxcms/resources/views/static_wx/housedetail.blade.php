@@ -172,12 +172,13 @@
         	  <a href="" class="detail-agent-title">看过此房的客户还看过<i class="link"></i></a>
         	  <ul class="see-house">
 
+                  @foreach($lishi as $K=>$v)
         	  	<li>
-        	  		<a href="">
+        	  		<a href="{{url('housedetail')}}/{{$v->rent_id}}.html">
         	  		  <img class="house-pic" src="{{url('static_wx/img')}}/2.jpg" />
-        	  		  <p class="house-title">阳光房 大客厅 落地窗  急售</p>
+        	  		  <p class="house-title">{{$v->r_title}}</p>
         		      <p class="house-address"><a href="">世纪中央城-丰和中大道</a></p>
-        		      <p class="house-type" style="color: #343434;">3室2厅 105平米 </p>
+        		      <p class="house-type" style="color: #343434;">{{$v->r_area}} 105平米 </p>
         		      <p><img src="{{url('static_wx/img')}}/jingpin.png" width="35" height="17"/>
         		      	<!--<img src="{{url('static_wx/img')}}/dujia.png" width="35" height="17"/>-->
         		      	<img src="{{url('static_wx/img')}}/suishi.png" width="55" height="17"/>
@@ -186,6 +187,7 @@
         	  		</a>
         	  		<div class="salse"></div>
         	  	</li>
+                      @endforeach
 
         </ul>
         <div style=" height: 5.5rem; "></div>
