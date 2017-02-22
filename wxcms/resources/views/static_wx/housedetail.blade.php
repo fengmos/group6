@@ -171,6 +171,7 @@
         	<li>
         	  <a href="" class="detail-agent-title">看过此房的客户还看过<i class="link"></i></a>
         	  <ul class="see-house">
+
         	  	<li>
         	  		<a href="">
         	  		  <img class="house-pic" src="{{url('static_wx/img')}}/2.jpg" />
@@ -185,36 +186,7 @@
         	  		</a>
         	  		<div class="salse"></div>
         	  	</li>
-        	  	<li>
-        	  		<a href="">
-        	  		  <img class="house-pic" src="{{url('static_wx/img')}}/2.jpg" />
-        	  		  <p class="house-title">阳光房 大客厅 落地窗  急售</p>
-        		      <p class="house-address"><a href="">世纪中央城-丰和中大道</a></p>
-        		      <p class="house-type" style="color: #343434;">3室2厅 105平米 </p>
-        		      <p><img src="{{url('static_wx/img')}}/jingpin.png" width="35" height="17"/>
-        		      	<!--<img src="{{url('static_wx/img')}}/dujia.png" width="35" height="17"/>-->
-        		      	<img src="{{url('static_wx/img')}}/suishi.png" width="55" height="17"/>
-        		      <span style="color: #ff5a60; font-size: 12px;">126<span style="font-size: 10px;">万</span></span>
-        		      </p>
-        	  		</a>
-        	  		<div class="salse"></div>
-        	  	</li>
-        	  	<li>
-        	  		<a href="">
-        	  		  <img class="house-pic" src="{{url('static_wx/img')}}/2.jpg" />
-        	  		  <p class="house-title">阳光房 大客厅 落地窗  急售</p>
-        		      <p class="house-address"><a href="">世纪中央城-丰和中大道</a></p>
-        		      <p class="house-type" style="color: #343434;">3室2厅 105平米 </p>
-        		      <p><img src="{{url('static_wx/img')}}/jingpin.png" width="35" height="17"/>
-        		      	<!--<img src="{{url('static_wx/img')}}/dujia.png" width="35" height="17"/>-->
-        		      	<img src="{{url('static_wx/img')}}/suishi.png" width="55" height="17"/>
-        		      <span style="color: #ff5a60; font-size: 12px;">126<span style="font-size: 10px;">万</span></span>
-        		      </p>
-        	  		</a>
-        	  		<div class="salse"></div>
-        	  	</li>
-        	  </ul>
-        	</li>
+
         </ul>
         <div style=" height: 5.5rem; "></div>
         <div class="agent-foot">

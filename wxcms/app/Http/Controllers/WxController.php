@@ -43,7 +43,7 @@ class WxController extends Controller
         {
             //存在数据
             $data['list'] = DB::table('rent_house')->where('rent_id',"$id")->first();
-            $data['fdinfo'] = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
+            $data['fd_info'] = DB::table('renter')->where('r_id',$data['list']->landlord_id)->select('r_tel','r_name')->first();
         }
         else
         {
@@ -54,9 +54,12 @@ class WxController extends Controller
             $history->save();
             //调取数据
             $data['list'] = DB::table('rent_house')->where('rent_id',"$id")->first();
-            $data['fdinfo'] = DB::table('renter')->where('r_id',$list->landlord_id)->select('r_tel','r_name')->first();
+            $data['fd_info'] = DB::table('renter')->where('r_id',$data['list']->landlord_id)->select('r_tel','r_name')->first();
         }
-        
+
+//        $list_id = DB::table('history')->where('')->select('ip')->first();  //查询房屋被浏览过的ip
+//
+//        $list_id->ip;
     	return view('static_wx/housedetail',$data);
 
     }
