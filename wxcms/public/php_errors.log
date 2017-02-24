@@ -11,3 +11,27 @@
 [20-Feb-2017 06:43:10 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\take() in D:\phpStudy\WWW\aiwujiwu\6group\cms\app\Http\Controllers\WxController.php on line 17
 [20-Feb-2017 06:43:12 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\take() in D:\phpStudy\WWW\aiwujiwu\6group\cms\app\Http\Controllers\WxController.php on line 17
 [22-Feb-2017 01:19:30 UTC] PHP Parse error:  syntax error, unexpected end of file in D:\phpStudy\WWW\awjw\group6\wxcms\storage\framework\views\f9f527c9f930fb6426c709fee7a437953c4ab94c.php on line 63
+[23-Feb-2017 06:13:20 UTC] PHP Warning:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+' in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:55
+Stack trace:
+#0 D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(55): PDO->__construct('mysql:host=101....', 'chenyang', '123456', Array)
+#1 D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=101....', Array, Array)
+#2 D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(61): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
+#4 D:\phpStudy\WWW\awjw\group6\wxcms\vendor\larav in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php on line 55
+[23-Feb-2017 06:13:20 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php on line 55
+[23-Feb-2017 14:13:20 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:20 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:20 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:20 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:20 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 06:13:20 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Http\ResponseTrait.php on line 6
+[23-Feb-2017 06:13:22 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php on line 55
+[23-Feb-2017 06:13:50 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php on line 56
+[23-Feb-2017 14:13:50 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:50 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\public\index.php on line 22
+[23-Feb-2017 14:13:50 PRC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\symfony\finder\Iterator\FilterIterator.php on line 23
+[23-Feb-2017 06:13:50 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Contracts\Logging\Log.php on line 5
+[23-Feb-2017 06:13:50 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php on line 55
+[23-Feb-2017 06:13:51 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\phpStudy\WWW\awjw\group6\wxcms\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php on line 123
+[23-Feb-2017 06:54:40 UTC] PHP Fatal error:  Cannot use App\Http\Requests as Requests because the name is already in use in D:\phpStudy\WWW\awjw\group6\wxcms\app\Http\Controllers\WxLoginController.php on line 7

@@ -20,26 +20,10 @@
 		<a href="{{url('wx')}}"><img src="{{url('static_wx/img')}}/logo.png" class="logo"></a>
 		<div class="top">
 				<div class="city" style="background: none; text-indent: 0; top: 0;">
-					<span>南昌
-					<i><img src="{{url('static_wx/img')}}/xiala.png"></i></span>
+					<span>房东中心
+					</span>
 				</div>
-				<div class="select_city" style="display: none;">
-					<!--<span class="ui-dropmenu-arrow" style="left: 25%; right: auto;"></span>-->
-					<div class="select-return">
-						<a href="javascript:;" class="return-btn">返回</a>选择城市
-					</div>
-					<h6>当前定位的城市</h6>
-					<span class="fail">定位为：其他市,中环暂不支持~</span>
-					<h6>所有城市</h6>
-					<ul class="city-list">
-					<li><a href="">长沙</a></li>
-					<li><a href="">九江</a></li>
-					<li><a href="">宜春</a></li>
-					<li><a href="">乌鲁木齐</a></li>
-					<li><a href="">太原</a></li>
-					<li><a href="">保定</a></li>
-					</ul>
-				</div>
+
 			</div>
 		<a href="" class="me"><img src="{{url('static_wx/img')}}/me.png" width="20" height="30"></a>
 	</header>
@@ -70,6 +54,10 @@
             </li>
             <li>
                 <a href="{{url('update_pass')}}">修改密码</a>
+            </li>
+
+            <li>
+                <a href="{{url('outlogin')}}">退出登录</a>
             </li>
         	
         </ul>

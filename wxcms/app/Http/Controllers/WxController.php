@@ -58,8 +58,7 @@ class WxController extends Controller
         }
 
         //浏览过本房子的客户还浏览过哪些房子
-        $lishi = DB::select("select * from rent_house where rent_id in(select rent_id from history where ip = (select ip from history where rent_id = '2'))
-");
+        $lishi = DB::select("select * from rent_house where rent_id in(select rent_id from history where ip in (select ip from history where rent_id = '$id')) order by rent_id desc limit 0,3");
 
         $data['lishi'] = $lishi;
     	return view('static_wx/housedetail',$data);
@@ -207,6 +206,12 @@ class WxController extends Controller
     //房东个人信息
     public function personal_info(Request $request){
         $fd_id =  $request->session()->get('fd_id');
+
+        if(empty($fd_id)){
+
+            return redirect('fd_login');
+            die;
+        }
 
         if($request->isMethod('post')){
 

@@ -26,45 +26,6 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-Route::any('/login','LoginController@login');
-Route::any('/check_login','LoginController@check_login');
-//跳转到首页
-Route::any('/index','IndexController@index');
-//跳转到商户管理页面
-Route::any('/nav_show','NavController@nav_show');
-//跳转到商户增加
-Route::any('/nav_add','NavController@nav_add');
-//跳转到幻灯片展示页面
-Route::any('/slide_show','SlideController@slide_show');
-//跳转到幻灯片添加页面
-Route::any('/slide_add','SlideController@slide_add');
-//跳转到文章分类的展示页面
-Route::any('/classify_list','ClassifyController@classify_list');
-//跳转到文章添加分类
-Route::any('/classify_add','ClassifyController@classify_add');
-//跳转到文章展示列表
-Route::any('/article_list','ArticleController@article_list');
-//跳转到文章添加页面
-Route::any('/article_add','ArticleController@article_add');
-//跳转到数据库列表页面
-Route::any('/backup_list','BackupController@backup_list');
-//添加新的表
-Route::any('/backup_add','BackupController@backup_add');
-Route::any('/indexs','DataController@index');
-Route::any('/adddata','BackupController@adddata');
-//添加导航入库
-Route::any('/nav_shows','BackupController@nav_shows');
-//采集列表
-Route::any('/gather_list','GatherController@gather_list');
-//采集页面
-Route::any('/gather_add','GatherController@gather_add');
-//采集开始并且入库
-Route::any('/gather_ads','GatherController@gather_ads');
-//采集的详情页面
-Route::any('/url1','GatherController@url1');
 
 
 //访问微信端主页
@@ -135,6 +96,9 @@ Route::post('odu','WxLoginController@ordinaryUser');
 //房东图片上传
 Route::post('fileUpload','WxController@fileUpload');
 Route::get('fileUpload','WxController@fileUpload');
+
+//房东退出登录
+Route::get('outlogin','WxLoginController@outlogin');
 
 
 

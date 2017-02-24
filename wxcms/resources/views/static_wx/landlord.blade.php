@@ -61,7 +61,7 @@
 			    <p class="agent-name">王翠花</p>
 			    <p>联系电话：13879139393</p>
                 <p>所属门店：三眼井</p>
-                <p class="agent-title">经纪人推荐</p>
+                <p class="agent-title">爱乌及屋推荐</p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
               </div>
@@ -76,7 +76,7 @@
 			    <p class="agent-name">王菜花</p>
 			    <p>联系电话：13879139393</p>
                 <p>所属门店：三眼井</p>
-                <p class="agent-title">经纪人推荐</p>
+                <p class="agent-title">爱乌及屋推荐</p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
               </div>
@@ -91,7 +91,7 @@
 			    <p class="agent-name">王菜花</p>
 			    <p>联系电话：13879139393</p>
                 <p>所属门店：三眼井</p>
-                <p class="agent-title">经纪人推荐</p>
+                <p class="agent-title">爱乌及屋推荐</p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
               </div>
@@ -106,7 +106,7 @@
 			    <p class="agent-name">王菜花</p>
 			    <p>联系电话：13879139393</p>
                 <p>所属门店：三眼井</p>
-                <p class="agent-title">经纪人推荐</p>
+                <p class="agent-title">爱乌及屋推荐</p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
               </div>
@@ -121,7 +121,7 @@
 			    <p class="agent-name">王菜花</p>
 			    <p>联系电话：13879139393</p>
                 <p>所属门店：三眼井</p>
-                <p class="agent-title">经纪人推荐</p>
+                <p class="agent-title">爱乌及屋推荐</p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
                 <p><a href="" class="agent-tuijian">房东降价急售-站前西路邮电小区精装两房 中间楼层 单价9000  </a></p>
               </div>

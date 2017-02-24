@@ -5,8 +5,57 @@
     <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
     <title>个人信息</title>
     <script src="http://kjschoolttt.oss-cn-beijing.aliyuncs.com/jquery-1.8.3.min.js"></script>
+    <script src="http://kjschoolttt.oss-cn-beijing.aliyuncs.com/ajaxfileupload.js" type="text/javascript"></script>
     <link href="{{url('static_wx/css/personal_info.css')}}" rel="stylesheet" type="text/css" />
 </head>
+<script type="text/javascript">
+    //下面用于图片上传预览功能
+    function setImagePreview(avalue) {
+
+
+
+        var docObj=document.getElementById("doc");
+
+        var imgObjPreview=document.getElementById("preview");
+        if(docObj.files &&docObj.files[0])
+        {
+//火狐下，直接设img属性
+            imgObjPreview.style.display = 'block';
+//imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+            imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+        }
+        else
+        {
+//IE下，使用滤镜
+            docObj.select();
+            var imgSrc = document.selection.createRange().text;
+            var localImagId = document.getElementById("localImag");
+//必须设置初始大小
+            localImagId.style.width = "150px";
+            localImagId.style.height = "180px";
+//图片异常的捕捉，防止用户修改后缀来伪造图片
+            try{
+                localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+
+            }
+            catch(e)
+            {
+                alert("您上传的图片格式不正确，请重新选择!");
+                return false;
+            }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
+        ajaxFileUpload();  //上传图片
+        return true;
+
+    }
+
+</script>
+
 <body>
 
 <header>
@@ -16,7 +65,15 @@
 <table width="100%">
     <tr>
 
-        <td colspan="2" align="center" height="55;"><img src="http://localhost/aiwujiwu/6group/cms/public/static_wx/img/member.png"></td>
+        <td colspan="2" align="center" height="55;">
+            <label>
+
+                <img id="preview" style="border-radius: 100%;" src="http://localhost/aiwujiwu/6group/cms/public/static_wx/img/member.png">
+
+            <input type="file" name="touxiang" id="doc" style="display:none" onchange="javascript:setImagePreview();">
+            </label>
+
+        </td>
     </tr>
     <tr>
         <td align="right">用户名:</td>
@@ -93,4 +150,42 @@
 
     })
 </script>
+
+
+<script type="text/javascript">
+
+
+
+    function ajaxFileUpload() {
+
+
+        $.ajaxFileUpload
+        (
+                {
+                    url: "{{url('uploadfile/fileupload.php')}}", //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: 'doc', //文件上传域的ID
+                    dataType: 'json', //返回值类型 一般设置为json
+                    success: function (data, status)  //服务器成功响应处理函数
+                    {
+                        $("#img1").attr("src", data.imgurl);
+                        if (typeof (data.error) != 'undefined') {
+                            if (data.error != '') {
+                                alert(data.error);
+                            } else {
+                                alert(data.msg);
+                            }
+                        }
+                    },
+                    error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        alert(e);
+                    }
+                }
+        )
+        return false;
+    }
+</script>
+
+
 </html>

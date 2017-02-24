@@ -153,7 +153,7 @@
         </ul>
         <ul class="detail-agent">
         	<li>
-        	  <a class="detail-agent-title">经纪人房评</a>
+        	  <a class="detail-agent-title">爱乌及屋点评</a>
         	  <div class="detail-commetent">
         	  	欢迎点击我的房源，我在{{url('static_wx/img')}}/地产工作8年以上，对每个小区户型了如指掌，能给您介绍更好房源和性价比更高房源，节省您看房时间，尽快帮您找到温馨的家，谢谢来电话。...
         	  </div>

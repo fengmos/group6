@@ -67,6 +67,9 @@
             <li>
                 <a href="{{url('zf_update_pass')}}">修改密码</a>
             </li>
+            <li>
+                <a href="{{url('outlogin')}}">退出登录</a>
+            </li>
         	
         </ul>
 </body>

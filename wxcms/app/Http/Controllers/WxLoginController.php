@@ -13,7 +13,15 @@ class WxLoginController extends Controller
 {
    
 
-   public function index(){
+   public function index(Request $Request){
+
+       //判断是否登录
+       if($Request->session()->get('fd_username')){
+
+           return redirect('fd_personal');
+           die;
+
+       };
 
 
    	return view('static_wx/login');
@@ -32,9 +40,27 @@ class WxLoginController extends Controller
     }
 
     //租户登录
-    public function zf_login(){
+    public function zf_login(Request $Request){
 
-        return view('static_wx/zf_login');
+        $fd_username = $Request->session()->get('fd_username');  //房东session
+        $username = $Request->session()->get('username');  //租户session
+        $openid =  $Request->session()->get('openid');
+
+
+
+        if(!empty($fd_username)){
+
+            $Request->session()->forget('username');  //删除租户session
+            return redirect('fd_personal');
+        }else if(!empty($username) || !empty( $openid)){
+
+            $Request->session()->forget('fd_username');  //删除房东session
+            return redirect('zf_personal');
+        }else{}
+
+
+            return view('static_wx/zf_login');
+
     }
 
     //第三方登录
@@ -142,6 +168,8 @@ class WxLoginController extends Controller
     //房东登录页面
     public function fd_login(Request $Request){
 
+
+
         $data = $Request->input();
 
         $username = $data['name'];
@@ -156,9 +184,6 @@ class WxLoginController extends Controller
                                       ->where('r_pwd',"$password")
                                       ->first();
             if($res){
-
-
-
 
                 $Request->session()->put('fd_username',$res->r_name);
                 $Request->session()->put('fd_id',$res->r_id);
@@ -203,6 +228,16 @@ class WxLoginController extends Controller
 
         echo "<script>alert('请输入手机或邮箱')</script>";
         echo "<script>window.location.href='".$url."';</script>";
+
+    }
+
+    //退出登录
+    public function outlogin(Request $request){
+
+        $request->session()->forget('fd_username');
+        $request->session()->forget('username');
+        $request->session()->forget('openid');
+        return redirect('wx');
 
     }
 
