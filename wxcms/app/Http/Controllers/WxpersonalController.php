@@ -13,6 +13,11 @@ class WxpersonalController extends Controller
     public function personalupd(Request $Request){
     	$userid = $Request->session()->get('userid');
 
+<<<<<<< HEAD
+=======
+    	
+
+>>>>>>> f5f5bdaa9672a93165592998e6dc949d2eb8f836
     	$data = $Request->input();
 
     	unset($data['_token']);

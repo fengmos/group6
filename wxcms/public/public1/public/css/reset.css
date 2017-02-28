@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html{
 	background:#fff;
 	color:#000;
@@ -45,4 +46,53 @@ ol,ul{
 }
 .fl-clear{
 	clear: both;
+=======
+html{
+	background:#fff;
+	color:#000;
+}
+body{
+	font:12px/1.5 Arial,宋体;
+}
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+	color:#333;
+}
+a:hover{
+	text-decoration: underline;
+	color:#FF0000;
+}
+fieldset,img{
+	border:none;
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+iframe{
+	display: block;
+	border:none;
+}
+ol,ul{
+	list-style: none;
+}
+.hide{
+	display: none;
+}
+.block{
+	display: block;
+}
+.fl-left{
+	float: left;
+}
+.fl-right{
+	float: right;
+}
+.fl-clear{
+	clear: both;
+>>>>>>> f5f5bdaa9672a93165592998e6dc949d2eb8f836
 }

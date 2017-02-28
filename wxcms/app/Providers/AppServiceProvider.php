@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace App\Providers;
@@ -26,3 +27,33 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 }
+=======
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+>>>>>>> f5f5bdaa9672a93165592998e6dc949d2eb8f836

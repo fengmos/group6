@@ -119,8 +119,11 @@ class HouseController extends CommonController
             $newName =  $clientName . "." . $entension;    //定义上传文件的新名称
             $path = $file->move('images', $newName);    //把缓存文件移动到制定文件夹
             $data['r_img']=$path;
+<<<<<<< HEAD
 //            dd($path);
 //            die;
+=======
+>>>>>>> f5f5bdaa9672a93165592998e6dc949d2eb8f836
             //dd($data);
             $res=DB::table('rent_house')->insert(
                 array('r_adress' =>$data['r_adress'],

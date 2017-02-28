@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     font-size: 1em;
     font-family: "Microsoft YaHei";
@@ -17,3 +18,24 @@ input{
 }
 
 
+=======
+body{
+    font-size: 1em;
+    font-family: "Microsoft YaHei";
+    color: #535353;
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color:#374782;
+}
+input{
+    outline: none;
+}
+
+
+>>>>>>> f5f5bdaa9672a93165592998e6dc949d2eb8f836
