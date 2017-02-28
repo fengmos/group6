@@ -189,7 +189,7 @@
                 //若iframe携带返回数据，则显示在feedback中
                 var dataObj = JSON.parse(data);
                 if(dataObj.code == 1){
-                    $('.upimg').html('<video src="'+dataObj.path+'" alt=""></video>');
+                    $('.upimg').html('<video src="'+dataObj.path+'" controls="controls">您的浏览器不支持视频播放</video>');
                 }else{
                     alert(dataObj.error);
                 }
