@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<script> var tenantId='6656aa0fb7854a8fb70ab1641a3b8801';document.write(unescape("%3Cscript id='aikfMobileMainJs' src='"+((window.location.protocol=="file:")?"http:":window.location.protocol)+"//www.aikf.com/ask/resources/app/ask/mobileMain.js?_="+Math.random()+"' type='text/javascript'%3E%3C/script%3E")) </script>
 		<meta charset="utf-8">
 		<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -15,6 +16,7 @@
     <script src="{{url('static_wx/js/comment.js')}}"></script>
     <script src="{{url('static_wx/js/jquery.flexslider-min.js')}}"></script>
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6LgOMCDWb7FOHEtg9YKDQldEhP1kYS9N"></script>
+
 	</head>
 	<body>
 		<header class="main1">
@@ -159,7 +161,7 @@
         	  		  <p class="house-title">{{$v->r_title}}</p>
         		      <p class="house-address"><a href="">世纪中央城-丰和中大道</a></p>
         		      <p class="house-type" style="color: #343434;">{{$v->r_area}} 105平米 </p>
-        		      <p><img src="{{url('static_wx/img')}}/jingpin.png" width="35" height="17"/>
+        		      <p><img src="{{url('static_wx/img')}}/jingpin.plng" width="35" height="17"/>
         		      	<!--<img src="{{url('static_wx/img')}}/dujia.png" width="35" height="17"/>-->
         		      	<img src="{{url('static_wx/img')}}/suishi.png" width="55" height="17"/>
         		      <span style="color: #ff5a60; font-size: 12px;">126<span style="font-size: 10px;">万</span></span>
@@ -170,24 +172,27 @@
                       @endforeach
 
         </ul>
-   <a href="http://www.aikf.com/ask/awjw.htm">    
+               
         <div style=" height: 5.5rem; "></div>
   
-        <div>
-        <div class="agent-foot">
-            <img class="agent-photo" src="{{url('images')}}/111111.jpg"/>
-            <p class="name">XIAOXIESHENG</p>
-            <p class="tele">15210022090</p>
+      
+  <div class="agent-foot">
+            <img class="agent-photo" src="{{url('static_wx/img')}}/test1.jpg"/>
+            <p class="name">{{$fd_info->r_name}}</p>
+            <p class="tele">{{$fd_info->r_tel}}</p>
             <div class="shop">
-                <a href="tel:15210022090">
+                <a href="tel:{{$fd_info->r_tel}}">
                     <span><img src="{{url('static_wx/img')}}/tele.png" width="18" height="20"/></span>
                     <P>致电</P>
                 </a>
-            
+                <a href="sms:{{$fd_info->r_tel}}">
+                    <span><img src="{{url('static_wx/img')}}/duanxin.png" width="25" height="20"/></span>
+                    <P>短信</P>
+                </a>
+             
             </div>
-            </div>  
         </div>
-        </a>
+        
 
 	</body>
 
