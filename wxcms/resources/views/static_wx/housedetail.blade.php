@@ -170,25 +170,25 @@
                       @endforeach
 
         </ul>
+   <a href="http://www.aikf.com/ask/awjw.htm">    
         <div style=" height: 5.5rem; "></div>
+  
+        <div>
         <div class="agent-foot">
-        	<img class="agent-photo" src="{{url('static_wx/img')}}/test1.jpg"/>
-        	<p class="name">{{$fd_info->r_name}}</p>
-        	<p class="tele">{{$fd_info->r_tel}}</p>
-        	<div class="shop">
-                <a href="tel:{{$fd_info->r_tel}}">
-        			<span><img src="{{url('static_wx/img')}}/tele.png" width="18" height="20"/></span>
-        			<P>致电</P>
-        		</a>
-                <a href="sms:{{$fd_info->r_tel}}">
-        			<span><img src="{{url('static_wx/img')}}/duanxin.png" width="25" height="20"/></span>
-        			<P>短信</P>
-        		</a>
-        		<a href="">
-        			<span><img src="{{url('static_wx/img')}}/shop.png" width="78" height="34"/></span>
-        		</a>
-        	</div>
+            <img class="agent-photo" src="{{url('images')}}/111111.jpg"/>
+            <p class="name">XIAOXIESHENG</p>
+            <p class="tele">15210022090</p>
+            <div class="shop">
+                <a href="tel:15210022090">
+                    <span><img src="{{url('static_wx/img')}}/tele.png" width="18" height="20"/></span>
+                    <P>致电</P>
+                </a>
+            
+            </div>
+            </div>  
         </div>
+        </a>
+
 	</body>
 
 
